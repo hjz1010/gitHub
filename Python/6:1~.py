@@ -3,6 +3,9 @@
 # 6/2 Python100제 시작
 
 # .34
+import time
+from datetime import timedelta
+import datetime
 import math
 
 
@@ -183,5 +186,53 @@ def check_prime(n):
     return "YES" if 소수 else "NO"
 
 
-if __name__ == "__main__":
-    print(check_prime(12))
+# 42
+
+
+def weekday():
+    [a, b] = map(int, input("2020년 _월 _일은 무슨 요일일까요?").split())
+    diff = (datetime.date(2020, a, b)-datetime.date(2020, 1, 1)).days
+    week = {
+        0: "WED", 1: "THU", 2: "FRI", 3: "SAT", 4: "SUN", 5: "MON", 6: "TUE"
+    }
+    return week.get(diff % 7)
+
+# 43
+
+
+def binary():
+    n = int(input("10진수 숫자를 입력하세요: "))
+    result = ""
+    while True:
+        result += str(n % 2)
+        if n // 2 == 0:
+            return result[::-1]+"(2)"
+        n = n // 2
+
+# 44
+
+
+def sum():
+    _input = input("정수: ")
+    sum = 0
+    for n in _input:
+        sum += int(n)
+    return sum
+
+
+def sum2():
+    result = 0
+    for i in input():
+        result += int(i)
+    return result
+
+
+# 45
+t = time.time()
+minu = t / 60
+hour = minu / 60
+day = hour / 24
+year = day / 365
+print(1970 + math.floor(year))
+
+# if __name__ == "__main__":
