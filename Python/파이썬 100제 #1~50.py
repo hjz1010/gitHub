@@ -3,6 +3,7 @@
 # 6/2 Python100제 시작
 
 # .34
+from curses.ascii import islower, isupper
 import time
 from datetime import timedelta
 import datetime
@@ -235,4 +236,78 @@ day = hour / 24
 year = day / 365
 print(1970 + math.floor(year))
 
+# 46
+
+
+def totalSum():
+    oneLine = ""
+    sum = 0
+    for i in range(1, 101):
+        oneLine += str(i)
+    # print(oneLine)
+    for j in oneLine:
+        sum += int(j)
+    print(sum)
+
+# 47
+
+
+def people():
+    people = [
+        ('이호준', '01050442903'),
+        ('이호상', '01051442904'),
+        ('이준호', '01050342904'),
+        ('이호준', '01050442903'),
+        ('이준', '01050412904'),
+        ('이호', '01050443904'),
+        ('이호준', '01050442903'),
+    ]
+    peopleSet = set(people)
+    numOfPeople = len(peopleSet)
+    print(f'중복을 제거한 접수 인원은 {numOfPeople}명 입니다.')
+
+# 48
+
+
+def case():
+    inputSting = input('변환할 문자열: ')
+    newString = ""
+    for letter in inputSting:
+        if isupper(letter):
+            newString += letter.lower()
+        elif islower(letter):
+            newString += letter.upper()
+        else:
+            return '입력한 값에 오류가 있습니다.'
+    return newString
+
+# 49
+
+
+def maxValue():
+    _input = input('10개의 정수를 입력하세요: ')
+    inputList = map(int, _input.split())
+    return max(inputList)
+
+# 50
+
+
+def bubble(n, data):
+    for i in range(n-1):
+        for j in range(n-i-2, -1, -1):
+            if data[j] > data[j+1]:
+                f = data[j]
+                b = data[j+1]
+                data[j] = b
+                data[j+1] = f
+    for i in range(n):
+        print(data[i], end=" ")
+
+
+# n = int(input())
+# data = list(map(int, input().split()))
+# n = len(data)
+
+
 # if __name__ == "__main__":
+#     print(maxValue())
