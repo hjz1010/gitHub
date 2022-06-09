@@ -1,3 +1,4 @@
+# -*- coding: utf8 -*-
 # 파이썬 100제 35번
 
 def one(n):
@@ -104,3 +105,70 @@ def 병합정렬(입력리스트):
 주어진리스트 = list(map(int, 주어진리스트))
 
 print(병합정렬(주어진리스트))
+
+
+# 파이썬 100제 52번 - quick sort
+
+def 퀵정렬(입력리스트):
+    입력리스트의길이 = len(입력리스트)
+    if 입력리스트의길이 <= 1:
+        return 입력리스트
+    기준값 = 입력리스트.pop(입력리스트의길이//2)
+    그룹_하나 = []
+    그룹_둘 = []
+
+    for i in range(입력리스트의길이-1):
+        if 입력리스트[i] < 기준값:
+            그룹_하나.append(입력리스트[i])
+        else:
+            그룹_둘.append(입력리스트[i])
+    return 퀵정렬(그룹_하나) + [기준값] + 퀵정렬(그룹_둘)
+
+
+주어진리스트 = input().split(' ')
+주어진리스트 = [int(k) for k in 주어진리스트]
+
+print(퀵정렬(주어진리스트))
+
+
+# 52 - 정답지 
+
+def math(e):
+    if e.count('(') != e.count(')'):
+        return False
+    괄호 = []
+    for i in e:
+        if i == '(':
+            괄호.append('(')
+        if i == ')':
+            if len(괄호) == 0:
+                return False
+            괄호.pop()
+    return True
+
+n = input()
+if math(n) == True:
+	print("YES")
+else:
+	print("NO")
+
+# 52 나의 최종 수정안
+
+def bracketCheck3():
+    inputString = input("괄호문자열: ")
+    checkList = []
+    checkPoint = [['{', '}'], ['[', ']'], ['(', ')']]
+    for letter in inputString:
+        if letter == checkPoint[0][0] or letter == checkPoint[1][0] or letter == checkPoint[2][0]:
+            checkList.append(letter)
+        for i in range(3):
+            if letter == checkPoint[i][1]:
+                if checkList == []:
+                    return 'NO'
+                elif checkList[-1] == checkPoint[i][0]:
+                    checkList.pop()
+                else:
+                    return 'NO'
+    if checkList == []:
+        return 'YES'
+# for문을 돌리기 전에 각 괄호의 갯수가 짝이 맞는지 먼저 확인하고 안 맞는 경우를 걸러내면 반복 횟수를 줄일 수 있다.
