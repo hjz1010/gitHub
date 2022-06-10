@@ -131,7 +131,7 @@ def 퀵정렬(입력리스트):
 print(퀵정렬(주어진리스트))
 
 
-# 52 - 정답지 
+# 53 - 정답지 
 
 def math(e):
     if e.count('(') != e.count(')'):
@@ -152,7 +152,7 @@ if math(n) == True:
 else:
 	print("NO")
 
-# 52 나의 최종 수정안
+# 53 나의 최종 수정안
 
 def bracketCheck3():
     inputString = input("괄호문자열: ")
@@ -172,3 +172,21 @@ def bracketCheck3():
     if checkList == []:
         return 'YES'
 # for문을 돌리기 전에 각 괄호의 갯수가 짝이 맞는지 먼저 확인하고 안 맞는 경우를 걸러내면 반복 횟수를 줄일 수 있다.
+
+# 54 
+
+user_input = input().split(' ')
+user_input = [int(i) for i in user_input]
+
+def sol(l):
+    l = sorted(l)
+    for i in range(len(l) - 1):
+        if l[i]+1 != l[i+1]:
+            return 'NO'
+    return 'YES'
+
+print(sol(user_input))
+
+# 나는     
+#   #cnsq = list(range(orderedList[0], orderedList[0] + len(orderedList)))
+#   # return "Yes" if orderedList == cnsq else 'No'

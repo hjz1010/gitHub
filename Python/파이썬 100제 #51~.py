@@ -137,6 +137,24 @@ def bracketCheck3():
 # else:
 # 	print("NO")
 
+# 54
+
+
+def consequtive():
+    inputList = list(map(int, input("스템프를 제출하세요: ").split(" ")))
+    orderedList = list(set(inputList))
+    cnsq = list(range(orderedList[0], orderedList[0] + len(orderedList)))
+    return "Yes" if orderedList == cnsq else 'No'
+# inputList = [int(i) for i in input("스템프를 제출하세요: ").split(" ")]
+# orderedList = sorted(inputList)  # 단순 정렬만 할꺼면 sorted가 훨씬 간단
+
+
+def consequtive2():
+    inputList = [int(i) for i in input("스템프를 제출하세요: ").split(" ")]
+    orderedList = sorted(inputList)
+    cnsq = list(range(orderedList[0], orderedList[0] + len(orderedList)))
+    return "Yes" if orderedList == cnsq else 'No'
+
 
 if __name__ == "__main__":
-    print(bracketCheck3())
+    print(consequtive2())
