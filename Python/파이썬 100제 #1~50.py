@@ -1,13 +1,176 @@
 # -*- coding: utf-8 -*-
 
+import math
+import datetime
+from datetime import timedelta
+import time
+from curses.ascii import islower, isupper
+
+# 파이썬 100제 #1~30
+
+# 2
+
+l = [200, 100, 300]
+l.insert(2, 10000)
+# print(l)
+
+# 7
+# 파이썬에서 변수의 이름은
+# - 대문자(A-Z)와 소문자(a-z)
+# - 숫자(0-9)
+# - 밑줄(_)
+# - 단, 숫자로 시작할 수는 없다.
+# - 예약어는 변수명으로 사용할 수 없다.
+
+# 9
+year = '2019'
+month = '04'
+day = '26'
+hour = '11'
+minute = '34'
+second = '27'
+
+# print(year, month, day, sep='/', end=' ')
+# print(hour, minute, second, sep=':')
+
+# 10
+
+
+def tree():
+    n = int(input("원하는 트리의 사이즈를 입력하세요: "))
+    for i in range(1, n+1):
+        print(' '*(n-i) + '*'*(2*i-1))
+
+
+def tree2():
+    n = int(input("원하는 트리의 사이즈를 입력하세요: "))
+    for i in range(1, n+1):
+        star = '*' * (2*i-1)
+        print(star.center(2*n-1))
+
+# 12
+
+
+class Wizard():
+    def __init__(self, health, mana, armor):
+        self.health = health
+        self.mana = mana
+        self.armor = armor
+
+    def attack(self):
+        print('파이어볼')
+
+
+# x = Wizard(health=545, mana=210, armor=10)
+# print(x.health, x.mana, x.armor)
+# x.attack()
+
+# 13
+# n = int(input("몇 번째 행성을 보여드릴까요? : "))
+# planetList = ['수성', '금성', '지구', '화성', '목성', '토성', '천왕성', '혜왕성']
+# print(planetList[n-1])
+
+# # 14
+# n = int(input("숫자를 입력하세요: "))
+# result = '짝' if n % 3 == 0 else n
+# print(result)
+
+# # 15
+# name = input('자기소개:')
+# print(f'안녕하세요. 저는 {name}입니다.')
+
+# 16
+# inputSen = input('문장을 입력하세요: ')
+# print(inputSen[::-1])
+
+# # 17
+# height = int(input('키를 입력하세요: '))
+# print('Yes' if height >= 150 else 'No')
+
+# 18
+# scores = [int(i) for i in input('세 과목의 점수를 입력하세요: ').split()]
+# avrg = sum(scores) // len(scores)
+# print(avrg)
+
+# 20
+# a, b = list(map(int, input('두 숫자: ').split()))
+# print(a//b, a % b)
+
+# 21 다음 중 set을 만드는 방법이 아닌 것?
+
+# 1)  x = {1, 2, 3, 5, 6, 7}
+# 2)  x = {}
+# 3)  x = set('python')
+# 4)  x = set(range(5))
+# 5)  x = set()
+
+# 23 print(10/2)의 출력 결과는 5이다.(O/X)
+
+# # 24
+# inputName = input('참가자명을 입력해주세요: ')
+# print(inputName.upper())
+
+# 25
+# def circle(n=int(input('원의 반지름: '))):
+#     return n*n*3.14
+
+# print(circle())
+
+# 26
+
+
+def planetInEng():
+    K = input("행성 이름: ")
+    planets = {
+        '수성': "Mercury", '금성': "Venus", '지구': "Earth", '화성': "Mars", '목성': "Jupiter",
+        '토성': "Saturn", '천왕성': "Uranus", '해왕성': "Neptune"
+    }
+    print(planets[K])
+
+# 27
+
+
+# stuNames = input('학생들 이름: ').split()
+# stuScores = input('점수: ').split()
+# stuDict = dict(zip(stuNames, stuScores))
+# print(stuDict)
+
+# 28
+
+
+def twoGram():
+    _input = input('문자열을 입력해주세요: ')
+    for i in range(len(_input)-1):
+        print(_input[i]+_input[i+1])
+
+# 29
+
+
+def upperCase():
+    _input = input('알파벳을 입력하세요: ')
+    result = ''
+    for letter in _input:
+        if letter.isupper():
+            result += letter
+
+    return "Perfect!" if result == _input else result
+# print(upperCase())
+
+# 30
+
+
+def findString():
+    sentence = input('문장: ')
+    word = input('단어: ')
+    return sentence.find(word)
+
+
+print(findString())
+
+
 # 6/2 Python100제 시작
 
 # .34
-from curses.ascii import islower, isupper
-import time
-from datetime import timedelta
-import datetime
-import math
 
 
 def check():
@@ -234,7 +397,7 @@ minu = t / 60
 hour = minu / 60
 day = hour / 24
 year = day / 365
-print(1970 + math.floor(year))
+# print(1970 + math.floor(year))
 
 # 46
 
