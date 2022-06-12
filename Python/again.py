@@ -68,13 +68,13 @@ print(sorted(data)[-1])  # max값을 구하기 위해 숫자를 정렬!!
 def bubble():
     data = list(map(int, input().split()))
     n = len(data)
-       for i in range(n-1):
-            for j in range(n-i-1):
-                if data[j] > data[j+1]:
-                    # 값을 바꿔 넣을땐 set을 이용!
-                    data[j], data[j+1] = data[j+1], data[j]
-        for i in range(n):
-            print(data[i], end= " ")
+    for i in range(n-1):
+        for j in range(n-i-1):
+            if data[j] > data[j+1]:
+                # 값을 바꿔 넣을땐 set을 이용!
+                data[j], data[j+1] = data[j+1], data[j]
+    for i in range(n):
+        print(data[i], end=" ")
 
 
 # 파이썬 100제 51번 - merge sort
@@ -131,7 +131,7 @@ def 퀵정렬(입력리스트):
 print(퀵정렬(주어진리스트))
 
 
-# 53 - 정답지 
+# 53 - 정답지
 
 def math(e):
     if e.count('(') != e.count(')'):
@@ -146,13 +146,15 @@ def math(e):
             괄호.pop()
     return True
 
+
 n = input()
 if math(n) == True:
-	print("YES")
+    print("YES")
 else:
-	print("NO")
+    print("NO")
 
 # 53 나의 최종 수정안
+
 
 def bracketCheck3():
     inputString = input("괄호문자열: ")
@@ -173,10 +175,12 @@ def bracketCheck3():
         return 'YES'
 # for문을 돌리기 전에 각 괄호의 갯수가 짝이 맞는지 먼저 확인하고 안 맞는 경우를 걸러내면 반복 횟수를 줄일 수 있다.
 
-# 54 
+# 54
+
 
 user_input = input().split(' ')
 user_input = [int(i) for i in user_input]
+
 
 def sol(l):
     l = sorted(l)
@@ -185,8 +189,9 @@ def sol(l):
             return 'NO'
     return 'YES'
 
+
 print(sol(user_input))
 
-# 나는     
+# 나는
 #   #cnsq = list(range(orderedList[0], orderedList[0] + len(orderedList)))
 #   # return "Yes" if orderedList == cnsq else 'No'
