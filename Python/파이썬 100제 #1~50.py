@@ -608,5 +608,66 @@ D = h // 24
 Y = D // 365
 print(1970+int(Y))
 
-# if __name__ == "__main__":
-#     print(add_digit())
+
+# 46
+
+def oneToHundred():
+    in_a_row = ''
+    for i in range(1, 101):
+        in_a_row += str(i)
+    print(in_a_row)
+    digit_sum = sum(map(int, in_a_row))
+    return digit_sum
+
+
+# 47
+
+# people = [
+#     ('이호준', '01050442903'),
+#     ('이호상', '01051442904'),
+#     ('이준호', '01050342904'),
+#     ('이호준', '01050442903'),
+#     ('이준', '01050412904'),
+#     ('이호', '01050443904'),
+#     ('이호준', '01050442903'),
+# ]
+# peopleSet = set(people)
+# print(f"접수 인원은 {len(peopleSet)}명 입니다.")
+
+# 48
+def case2():
+    _input = input()
+    result = ""
+    for letter in _input:
+        if isupper(letter):
+            result += letter.lower()
+        elif islower(letter):
+            result += letter.upper()
+        else:
+            result += letter
+    return result
+
+# 49
+
+
+def maxNum():
+    nums = list(map(int, input().strip().split()))
+    return max(nums)
+
+# 50
+
+
+def bubble(n, data):
+    for i in range(n-1):
+        for j in range(n-i-1):
+            if data[j] > data[j+1]:
+                data[j], data[j+1] = data[j+1], data[j]
+                print(data)
+    for i in range(n):
+        print(data[i], end=" ")
+
+
+data = list(map(int, input().split()))
+n = len(data)
+
+bubble(n, data)
