@@ -370,21 +370,46 @@ b = ['a', 'b', 'c', 'd', 'e']
 탑s = ["ABCDEF", "BCAD", "ADEFQRX", "BEDFG"]
 규칙 = "ABD"
 
-result = []
+# result = []
+# for 탑 in 탑s:
+#     인덱스 = None
+#     for i in range(len(탑)):
+#         if 탑[i] in 규칙:
+#             try:
+#                 if 인덱스 > 규칙.index(탑[i]):
+#                     result.append(탑 + ": 불가능")
+#                     break
+#                 else:
+#                     인덱스 = 규칙.index(탑[i])
+#             except:
+#                 인덱스 = 규칙.index(탑[i])
+#         if i == len(탑)-1:
+#             result.append(탑 + ": 가능")
+# print(result)
+
+# 결과 = []
+# for 탑 in 탑s:
+#     비교할블럭 = ""
+#     for 블럭 in 탑:
+#         if 블럭 in 규칙:
+#             비교할블럭 += 블럭
+#     수정규칙 = 규칙
+#     for 블럭 in 규칙:
+#         if 블럭 not in 비교할블럭:
+#             수정규칙 = 수정규칙.replace(블럭, "")
+
+#     결과.append("가능" if 비교할블럭 == 수정규칙 else "불가능")
+# print(결과)
+
+결과 = []
 for 탑 in 탑s:
-    인덱스 = None
-    for i in range(len(탑)):
-        if 탑[i] in 규칙:
-            try:
-                if 인덱스 > 규칙.index(탑[i]):
-                    result.append(탑 + ": 불가능")
-                    break
-                else:
-                    인덱스 = 규칙.index(탑[i])
-            except:
-                인덱스 = 규칙.index(탑[i])
-    result.append(탑 + ": 가능")
-print(result)
+    비교할블럭 = ""
+    for 블럭 in 탑:
+        if 블럭 in 규칙:
+            비교할블럭 += 블럭
+    수정규칙 = "".join(블럭 for 블럭 in 규칙 if 블럭 in 비교할블럭)
+    결과.append("가능" if 비교할블럭 == 수정규칙 else "불가능")
+print(결과)
 
 # if __name__ == "__main__":
 #     print(elevator())
