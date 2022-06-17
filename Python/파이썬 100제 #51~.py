@@ -1,6 +1,9 @@
 # -*- coding: utf8 -*-
 # 51
 
+import math
+from re import L
+from this import s
 from xml.sax.xmlreader import InputSource
 
 
@@ -278,17 +281,110 @@ def countOne():
 # print(_input.center(50, "="))
 
 # 60
-student = ['강은지', '김유정', '박현서', '최성훈', '홍유진',
-           '박지호', '권윤일', '김채리', '한지호', '김진이', '김민호', '강채연']
+# student = ['강은지', '김유정', '박현서', '최성훈', '홍유진',
+    #    '박지호', '권윤일', '김채리', '한지호', '김진이', '김민호', '강채연']
 
 # sortedStd = sorted(student)
 # for i in range(len(sortedStd)):
 #     print(f"번호: {i+1}, 이름: {sortedStd[i]}")
 
-sortedStd = sorted(student)
-for num, std in enumerate(sortedStd, start=1):
-    print(f"번호: {num}, 이름: {std}")
+# sortedStd = sorted(student)
+# for num, std in enumerate(sortedStd, start=1):
+#     print(f"번호: {num}, 이름: {std}")
 
+# 61 문자열 압축
+
+
+def shorten():
+    _input = input("문자열: ")
+    result = _input[0]
+    count = 0
+    for txt in _input:
+        if txt == result[-1]:
+            count += 1
+        else:
+            result += str(count)
+            result += txt
+            count = 1
+    result += str(count)
+    return result
+
+# 62. 20190923 출력
+
+
+# a = 'aacdddddddddfffffffffgghhh'
+# _list = 'abcdefgh'
+# for alph in _list:
+#     print(a.count(alph), end="")
+
+# 63. 줄여 말하기
+
+# _input = input("긴 문장: ")
+# _sep = _input.split(" ")
+# print("줄임말..: ", end="")
+# for word in _sep:
+#     print(word[0], end="")
+
+# 64. 이상한 엘베
+
+
+def elevator():
+    N = int(input("엘베 정량(kg): "))
+    # max7kg = math.floor(N/7)
+    max3kg = N//3
+    for i in range(max3kg + 1):
+        if (N - 3 * i) % 7 == 0:
+            j = (N - 3 * i) // 7
+            return i+j
+    return -1
+
+
+# 65.
+a = [1, 2, 3, 4, 5]
+b = ['a', 'b', 'c', 'd', 'e']
+
+# result = []
+
+# for i in range(math.ceil(len(a)/2)):
+#     result.append([a[2*i], b[2*i]])
+#     try:
+#         result.append([b[2*i+1], a[2*i+1]])
+#     except:
+#         pass
+# print(result)
+
+# result = []
+# count = 0
+# for _set in zip(a, b):
+#     _list = list(_set)
+#     if count % 2 == 0:
+#         result.append(_list)
+#     else:
+#         reverse_list = _list[::-1]
+#         result.append(reverse_list)
+#     count += 1
+# print(result)
+
+# 66 블럭탑 쌓기
+
+탑s = ["ABCDEF", "BCAD", "ADEFQRX", "BEDFG"]
+규칙 = "ABD"
+
+result = []
+for 탑 in 탑s:
+    인덱스 = None
+    for i in range(len(탑)):
+        if 탑[i] in 규칙:
+            try:
+                if 인덱스 > 규칙.index(탑[i]):
+                    result.append(탑 + ": 불가능")
+                    break
+                else:
+                    인덱스 = 규칙.index(탑[i])
+            except:
+                인덱스 = 규칙.index(탑[i])
+    result.append(탑 + ": 가능")
+print(result)
 
 # if __name__ == "__main__":
-#     print(())
+#     print(elevator())
