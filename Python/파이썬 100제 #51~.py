@@ -433,21 +433,86 @@ b = ['a', 'b', 'c', 'd', 'e']
 # m = int(n - ((N-2)*(N-1) / 2))
 # print([m, N])
 
-# 68
+# 68 버스시간표
 
-busList = ["12:30", "13:20", "14:13"]
-time = datetime.datetime.strptime("12:40", "%H:%M")
-result = []
-for bus in busList:
-    bus = datetime.datetime.strptime(bus, "%H:%M")
-    if bus > time:
-        s = (bus-time).seconds
-        m = int((s / 60) % 60)
-        h = int((s / 60) // 60)
-        result.append(f"{h}시간 {m}분")
-    else:
-        result.append("지나갔습니다")
-print(result)
+# busList = ["12:30", "13:20", "14:13"]
+# time = datetime.datetime.strptime("12:40", "%H:%M")
+# result = []
+# for bus in busList:
+#     bus = datetime.datetime.strptime(bus, "%H:%M")
+#     if bus > time:
+#         s = (bus-time).seconds
+#         m = int((s / 60) % 60)
+#         h = int((s / 60) // 60)
+#         result.append(f"{h}시간 {m}분")
+#     else:
+#         result.append("지나갔습니다")
+# print(result)
+
+# 69 골드바흐의 추측
+# 2보다 큰 모든 짝수는 두 개의 소수(prime number)의 합으로 표현할 수 있다.
+# 골드바흐 파티션의 예 : 100 = 47 + 53
+
+# n = int(input("2보다 큰 짝수: "))
+# n/2 보다 작은 소수를 찾는 반복문(?)을 먼저 만들고 n에서 그 소수를 뺀 값이 소수인지 확인하자
+# 인수가 prime number인지 확인하는 함수
+
+# def primeNum(num):
+#     if num == 2:
+#         return True
+#     for i in range(2, math.ceil(math.sqrt(num))+1):
+#         if num % i == 0:
+#             return False
+#         if i == math.ceil(math.sqrt(num)):
+#             return True
+
+
+# result = []
+# for i in range(2, math.ceil(n/2)):
+#     if primeNum(i):
+#         if primeNum(n - i):
+#             result.append((i, n-i))
+# print(result)
+
+# 답안 이해해보기..
+def cal():
+    n = 100*2
+    primes = []
+    a = [False, False] + [True]*(n-1)
+
+    for i in range(2, n+1):
+        if a[i]:
+            primes.append(i)
+            for j in range(2*i, n+1, i):
+                a[j] = False
+
+    return primes
+
+
+a = cal()
+
+
+# 골드바흐파티션
+n = int(input())
+l = []
+k = []
+
+for i in range(2, n//2+1):
+    if i in a and n-i in a:
+        l.append(i)
+        l.append(n-i)
+# print(l), n=100
+# >>  [3, 97, 11, 89, 17, 83, 29, 71, 41, 59, 47, 53]
+
+for i in range(0, len(l)-1, 2):
+    k.append(l[i+1]-l[i])
+print(k)
+'''  
+index = k.index(min(k))*2
+print(l[index], l[index+1])
+
+
 
 # if __name__ == "__main__":
 #     print(elevator())
+'''
