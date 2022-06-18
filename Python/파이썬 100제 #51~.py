@@ -1,6 +1,9 @@
 # -*- coding: utf8 -*-
 # 51
 
+from datetime import datetime, date, time, timezone
+from datetime import *
+import datetime
 import math
 from re import L
 from this import s
@@ -421,18 +424,30 @@ b = ['a', 'b', 'c', 'd', 'e']
 # 민규가 빠지면, 전체 인원은 - 1, (N-2)*(N-1) / 2 + m
 # 여기서, m은 N보다 작다
 
-n = int(input("총 악수 횟수: "))
-N = 2
-while True:
-    if (N-2)*(N-1) / 2 <= n and n < (N-1)*N / 2:
-        break
-    N += 1
-m = 1
-while True:
-    if (N-2)*(N-1) / 2 + m == n:
-        break
-    m += 1
-print([m, N])
+# n = int(input("총 악수 횟수: "))
+# N = 2
+# while True:
+#     if (N-2)*(N-1) / 2 <= n and n < (N-1)*N / 2:
+#         break
+#     N += 1
+# m = int(n - ((N-2)*(N-1) / 2))
+# print([m, N])
+
+# 68
+
+busList = ["12:30", "13:20", "14:13"]
+time = datetime.datetime.strptime("12:40", "%H:%M")
+result = []
+for bus in busList:
+    bus = datetime.datetime.strptime(bus, "%H:%M")
+    if bus > time:
+        s = (bus-time).seconds
+        m = int((s / 60) % 60)
+        h = int((s / 60) // 60)
+        result.append(f"{h}시간 {m}분")
+    else:
+        result.append("지나갔습니다")
+print(result)
 
 # if __name__ == "__main__":
 #     print(elevator())
