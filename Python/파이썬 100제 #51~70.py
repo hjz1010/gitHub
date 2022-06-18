@@ -474,45 +474,70 @@ b = ['a', 'b', 'c', 'd', 'e']
 #             result.append((i, n-i))
 # print(result)
 
-# 답안 이해해보기..
-def cal():
-    n = 100*2
-    primes = []
-    a = [False, False] + [True]*(n-1)
+# # 답안 이해해보기..
+# def cal():
+#     n = 100*2
+#     primes = []
+#     a = [False, False] + [True]*(n-1)
 
-    for i in range(2, n+1):
-        if a[i]:
-            primes.append(i)
-            for j in range(2*i, n+1, i):
-                a[j] = False
+#     for i in range(2, n+1):
+#         if a[i]:
+#             primes.append(i)
+#             for j in range(2*i, n+1, i):
+#                 a[j] = False
 
-    return primes
-
-
-a = cal()
+#     return primes
 
 
-# 골드바흐파티션
-n = int(input())
-l = []
-k = []
-
-for i in range(2, n//2+1):
-    if i in a and n-i in a:
-        l.append(i)
-        l.append(n-i)
-# print(l), n=100
-# >>  [3, 97, 11, 89, 17, 83, 29, 71, 41, 59, 47, 53]
-
-for i in range(0, len(l)-1, 2):
-    k.append(l[i+1]-l[i])
-print(k)
-'''  
-index = k.index(min(k))*2
-print(l[index], l[index+1])
+# a = cal()
 
 
+# # 골드바흐파티션
+# n = int(input())
+# l = []
+# k = []
 
-# if __name__ == "__main__":
-#     print(elevator())
-'''
+# for i in range(2, n//2+1):
+#     if i in a and n-i in a:
+#         l.append(i)
+#         l.append(n-i)
+# # print(l), n=100
+# # >>  [3, 97, 11, 89, 17, 83, 29, 71, 41, 59, 47, 53]
+
+# for i in range(0, len(l)-1, 2):
+#     k.append(l[i+1]-l[i])
+# # print(k)
+# # >> [94, 78, 66, 42, 18, 6]
+# # 아하, 차이가 작은 것을 출력하기 위한 작업..!
+# index = k.index(min(k))*2
+# print(l[index], l[index+1])
+
+
+# # 70. 행렬곱하기
+# # 곱할 수 있는 행렬인지 판별 : a행렬의 열의 갯수와 b행렬의 행의 갯수가 같아야함
+# # a = ([1, 2, 3],
+# #      [2, 4, 5])
+# # b = ([1, 0],
+# #      [0, 3])
+# a = ([1, 2, 3],
+#      [2, 4, 5])
+# b = ([1, 0, 2, 1],
+#      [0, 1, 1, 2],
+#      [1, 2, 0, 1])
+# # a 열의 갯수는 len(a[0]), b 행의 갯수는 len(b)
+# if len(a[0]) == len(b):
+#     # result 행렬은 i(len(a))행 j(len(b[0])열
+#     # : ([11, 12, 13, 14],
+#     #    [21, 22, 23, 24])
+#     result = []
+#     for i in range(len(a)):
+#         row = []
+#         for j in range(len(b[0])):
+#             elmnt = 0
+#             for k in range(len(b)):
+#                 elmnt += a[i][k]*b[k][j]
+#             row.append(elmnt)
+#         result.append(row)
+#     print(tuple(result))
+# else:
+#     print(-1)
