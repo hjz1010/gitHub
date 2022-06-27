@@ -6,7 +6,7 @@
 # from .multiplication import multiply
 
 # 절대경로
-from multiplication import multiply
+from calculator.multiplication import multiply
 
 
 def add_and_multiply(a, b):
